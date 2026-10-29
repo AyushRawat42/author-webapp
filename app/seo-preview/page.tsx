@@ -177,7 +177,7 @@ export default function SEOPreviewDashboard() {
   const approvedCount = specs.filter((s) => s.status === 'approved').length;
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] px-4 sm:px-6 md:px-12 py-10 md:py-20">
       <div className="max-w-7xl mx-auto space-y-10">
         {/* Top Back Link */}
         <Link
@@ -191,11 +191,11 @@ export default function SEOPreviewDashboard() {
         {/* Dashboard Header */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-[#777777]/25">
           <div className="space-y-1">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#B08D57] font-cinzel font-semibold">
+            <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#B08D57] font-cinzel font-semibold">
               <Search size={14} className="text-[#B5121B]" />
               <span>Client Review & Approval Stage (PDF Requirement #10)</span>
             </div>
-            <h1 className="font-cinzel text-2xl sm:text-4xl font-bold text-[#C0C0C0]">
+            <h1 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold text-[#C0C0C0] leading-tight break-words">
               SEO Pre-Publish Approval Dashboard
             </h1>
             <p className="text-xs sm:text-sm font-poppins text-[#777777] max-w-2xl">
@@ -240,8 +240,8 @@ export default function SEOPreviewDashboard() {
         </div>
 
         {/* Filter Controls */}
-        <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="flex flex-wrap items-center gap-2">
             <Filter size={14} className="text-[#777777]" />
             <span className="text-xs font-cinzel uppercase tracking-wider text-[#777777]">Filter:</span>
             <button
@@ -266,7 +266,71 @@ export default function SEOPreviewDashboard() {
         </div>
 
         {/* Inventory Table */}
-        <div className="bg-[#111111] border border-[#777777]/30 rounded-sm overflow-x-auto">
+        <div className="grid grid-cols-1 gap-4 xl:hidden">
+          {filteredSpecs.map((item) => (
+            <article
+              key={item.urlPath}
+              className="bg-[#111111] border border-[#777777]/30 rounded-sm p-5 space-y-4"
+            >
+              <div className="space-y-1">
+                <strong className="block font-cinzel text-sm text-[#C0C0C0]">
+                  {item.pageName}
+                </strong>
+                <Link
+                  href={item.urlPath}
+                  target="_blank"
+                  className="break-all text-[#777777] hover:text-[#DC2626] font-mono text-[11px] inline-flex items-center gap-1"
+                >
+                  <span>{item.urlPath}</span>
+                  <ExternalLink size={10} />
+                </Link>
+              </div>
+              <div className="space-y-1">
+                <h2 className="text-xs font-cinzel uppercase tracking-wider text-[#777777]">
+                  Proposed Meta Title
+                </h2>
+                <p className="text-sm text-[#C0C0C0] break-words">{item.metaTitle}</p>
+                <span className="text-[10px] text-[#777777] font-mono">
+                  {item.metaTitle.length} characters (Optimal: 30–60)
+                </span>
+              </div>
+              <div className="space-y-1">
+                <h2 className="text-xs font-cinzel uppercase tracking-wider text-[#777777]">
+                  Proposed Meta Description
+                </h2>
+                <p className="text-xs text-[#777777] leading-relaxed break-words">
+                  {item.metaDescription}
+                </p>
+                <span className="text-[10px] text-[#777777] font-mono">
+                  {item.metaDescription.length} characters (Optimal: 120–160)
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-1">
+                {item.primaryKeywords.map((keyword, index) => (
+                  <span
+                    key={index}
+                    className="bg-[#050505] text-[#C0C0C0] border border-[#777777]/30 px-1.5 py-0.5 rounded-xs text-[10px]"
+                  >
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+              <button
+                onClick={() => toggleStatus(item.urlPath)}
+                className={`w-full px-3 py-2 rounded-sm text-xs font-cinzel uppercase tracking-wider inline-flex items-center justify-center gap-1.5 transition-colors cursor-pointer ${
+                  item.status === 'approved'
+                    ? 'bg-[#B08D57]/20 text-[#B08D57] border border-[#B08D57]'
+                    : 'bg-[#B5121B] hover:bg-[#DC2626] text-white'
+                }`}
+              >
+                <CheckCircle2 size={12} />
+                <span>{item.status === 'approved' ? 'Approved' : 'Approve'}</span>
+              </button>
+            </article>
+          ))}
+        </div>
+
+        <div className="hidden xl:block bg-[#111111] border border-[#777777]/30 rounded-sm overflow-hidden">
           <table className="w-full text-left border-collapse text-xs font-poppins">
             <thead>
               <tr className="border-b border-[#777777]/30 bg-[#0a0a0a] text-[#C0C0C0] font-cinzel uppercase tracking-wider">

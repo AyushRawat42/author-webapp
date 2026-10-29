@@ -20,14 +20,14 @@ export const metadata: Metadata = {
 
 export default function ArticlesPage() {
   return (
-    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] px-4 sm:px-6 md:px-12 py-10 md:py-20">
       <div className="max-w-4xl mx-auto space-y-16">
         {/* Header */}
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <p className="text-xs uppercase tracking-[0.25em] text-[#B08D57] font-cinzel">
             Category A · Editorial
           </p>
-          <h1 className="font-cinzel text-3xl sm:text-5xl font-bold tracking-wide text-[#C0C0C0]">
+          <h1 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-[#C0C0C0] leading-tight break-words">
             Articles
           </h1>
           <p className="font-poppins text-sm sm:text-base text-[#777777]">
@@ -43,7 +43,7 @@ export default function ArticlesPage() {
               className="bg-[#111111] border border-[#777777]/30 rounded-sm overflow-hidden hover:border-[#777777] transition-colors flex flex-col md:flex-row items-stretch"
             >
               {/* Featured Visual Container */}
-              <div className="md:w-5/12 bg-gradient-to-br from-[#1c1c1c] to-[#0a0a0a] p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#777777]/20 relative overflow-hidden group">
+              <div className="md:w-5/12 bg-gradient-to-br from-[#1c1c1c] to-[#0a0a0a] p-5 sm:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#777777]/20 relative overflow-hidden group">
                 {/* Subtle decorative geometric overlay */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/5 via-transparent to-black/60 pointer-events-none" />
                 
@@ -64,7 +64,7 @@ export default function ArticlesPage() {
               </div>
 
               {/* Content Column */}
-              <div className="md:w-7/12 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+              <div className="md:w-7/12 p-5 sm:p-8 flex flex-col justify-between space-y-6">
                 <div className="space-y-3">
                   {/* Publication date & metadata */}
                   <div className="flex items-center gap-2 text-xs text-[#777777] font-poppins">
@@ -76,7 +76,7 @@ export default function ArticlesPage() {
                   </div>
 
                   {/* Article Title */}
-                  <h2 className="font-cinzel text-xl sm:text-2xl font-bold text-[#C0C0C0] hover:text-white transition-colors">
+                  <h2 className="font-cinzel text-xl sm:text-2xl font-bold text-[#C0C0C0] hover:text-white transition-colors break-words">
                     <Link href={`/writings/articles/${article.slug}`}>
                       {article.title}
                     </Link>

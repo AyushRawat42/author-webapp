@@ -31,14 +31,14 @@ export default async function WritingsPage({ searchParams }: Props) {
   const showPhilosophy = showAll || currentCategory === 'philosophy';
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] px-4 sm:px-6 md:px-12 py-10 md:py-20">
       <div className="max-w-6xl mx-auto space-y-16">
         {/* Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <p className="text-xs uppercase tracking-[0.25em] text-[#B08D57] font-cinzel">
             The Written Archive
           </p>
-          <h1 className="font-cinzel text-3xl sm:text-5xl font-bold tracking-wide text-[#C0C0C0]">
+          <h1 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-[#C0C0C0] leading-tight break-words">
             Writings & Dispatches
           </h1>
           <p className="font-poppins text-sm sm:text-base text-[#777777] leading-relaxed">
@@ -46,10 +46,10 @@ export default async function WritingsPage({ searchParams }: Props) {
           </p>
 
           {/* Clean Segmented Tab Navigation for the Two Categories */}
-          <div className="pt-6 flex flex-wrap items-center justify-center gap-3">
+          <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
               href="/writings"
-              className={`px-5 py-2 text-xs font-cinzel uppercase tracking-wider rounded-sm transition-all duration-200 border cursor-pointer ${
+              className={`w-full sm:w-auto py-3 px-5 text-sm sm:text-base text-center font-cinzel uppercase tracking-wider rounded-sm transition-all duration-200 border cursor-pointer ${
                 showAll
                   ? 'bg-[#B5121B] border-[#B5121B] text-white font-semibold shadow-md shadow-[#B5121B]/20'
                   : 'bg-[#111111] border-[#777777]/30 text-[#777777] hover:text-white hover:border-[#777777]'
@@ -58,27 +58,29 @@ export default async function WritingsPage({ searchParams }: Props) {
               All Categories
             </Link>
 
-            <Link
-              href="/writings?category=articles"
-              className={`px-5 py-2 text-xs font-cinzel uppercase tracking-wider rounded-sm transition-all duration-200 border cursor-pointer ${
-                currentCategory === 'articles'
-                  ? 'bg-[#B5121B] border-[#B5121B] text-white font-semibold shadow-md shadow-[#B5121B]/20'
-                  : 'bg-[#111111] border-[#777777]/30 text-[#777777] hover:text-white hover:border-[#777777]'
-              }`}
-            >
-              Articles ({ARTICLES.length})
-            </Link>
+            <div className="grid grid-cols-2 w-full sm:w-auto gap-3">
+              <Link
+                href="/writings?category=articles"
+                className={`w-full py-3 px-3 sm:px-5 text-sm sm:text-base text-center font-cinzel uppercase tracking-wider rounded-sm transition-all duration-200 border cursor-pointer ${
+                  currentCategory === 'articles'
+                    ? 'bg-[#B5121B] border-[#B5121B] text-white font-semibold shadow-md shadow-[#B5121B]/20'
+                    : 'bg-[#111111] border-[#777777]/30 text-[#777777] hover:text-white hover:border-[#777777]'
+                }`}
+              >
+                Articles ({ARTICLES.length})
+              </Link>
 
-            <Link
-              href="/writings?category=philosophy"
-              className={`px-5 py-2 text-xs font-cinzel uppercase tracking-wider rounded-sm transition-all duration-200 border cursor-pointer ${
-                currentCategory === 'philosophy'
-                  ? 'bg-[#B5121B] border-[#B5121B] text-white font-semibold shadow-md shadow-[#B5121B]/20'
-                  : 'bg-[#111111] border-[#777777]/30 text-[#777777] hover:text-white hover:border-[#777777]'
-              }`}
-            >
-              Philosophy ({PHILOSOPHY_POSTS.length})
-            </Link>
+              <Link
+                href="/writings?category=philosophy"
+                className={`w-full py-3 px-3 sm:px-5 text-sm sm:text-base text-center font-cinzel uppercase tracking-wider rounded-sm transition-all duration-200 border cursor-pointer ${
+                  currentCategory === 'philosophy'
+                    ? 'bg-[#B5121B] border-[#B5121B] text-white font-semibold shadow-md shadow-[#B5121B]/20'
+                    : 'bg-[#111111] border-[#777777]/30 text-[#777777] hover:text-white hover:border-[#777777]'
+                }`}
+              >
+                Philosophy ({PHILOSOPHY_POSTS.length})
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -92,7 +94,7 @@ export default async function WritingsPage({ searchParams }: Props) {
                 </span>
                 <h2
                   id="articles-heading"
-                  className="font-cinzel text-2xl sm:text-3xl font-bold tracking-wider text-[#C0C0C0] uppercase mt-1"
+                  className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold tracking-wider text-[#C0C0C0] uppercase mt-1 break-words"
                 >
                   Articles
                 </h2>
@@ -103,14 +105,14 @@ export default async function WritingsPage({ searchParams }: Props) {
             </div>
 
             {/* Standard Modern Editorial Blog Layout */}
-            <div className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {ARTICLES.map((article, idx) => (
                 <article
                   key={article.id}
-                  className="bg-[#111111] border border-[#777777]/30 rounded-sm overflow-hidden flex flex-col md:flex-row items-stretch hover:border-[#777777] transition-colors"
+                  className="bg-[#111111] border border-[#777777]/30 rounded-sm overflow-hidden flex flex-col hover:border-[#777777] transition-colors"
                 >
                   {/* Featured Image / Visual container */}
-                  <div className="md:w-5/12 bg-gradient-to-br from-[#181818] via-[#101010] to-[#070707] p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#777777]/25 relative overflow-hidden group">
+                  <div className="w-full bg-gradient-to-br from-[#181818] via-[#101010] to-[#070707] p-5 sm:p-8 flex flex-col justify-between border-b border-[#777777]/25 relative overflow-hidden group">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/5 via-transparent to-black/60 pointer-events-none" />
 
                     <div className="flex items-center justify-between text-[11px] text-[#B08D57] font-cinzel tracking-wider relative z-10">
@@ -130,7 +132,7 @@ export default async function WritingsPage({ searchParams }: Props) {
                   </div>
 
                   {/* Editorial Text Content */}
-                  <div className="md:w-7/12 p-6 sm:p-8 flex flex-col justify-between space-y-6">
+                  <div className="w-full p-5 sm:p-8 flex flex-col justify-between space-y-6">
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 text-xs text-[#777777] font-poppins">
                         <Calendar size={13} className="text-[#B08D57]" />
@@ -188,7 +190,7 @@ export default async function WritingsPage({ searchParams }: Props) {
                 </span>
                 <h2
                   id="philosophy-heading"
-                  className="font-cinzel text-2xl sm:text-3xl font-bold tracking-wider text-[#C0C0C0] uppercase mt-1"
+                  className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold tracking-wider text-[#C0C0C0] uppercase mt-1 break-words"
                 >
                   Philosophy
                 </h2>
@@ -199,11 +201,11 @@ export default async function WritingsPage({ searchParams }: Props) {
             </div>
 
             {/* Clean, minimal presentation with generous spacing between thoughts */}
-            <div className="space-y-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {PHILOSOPHY_POSTS.map((item, index) => (
                 <div
                   key={item.id}
-                  className="bg-[#111111] border border-[#777777]/30 rounded-sm p-8 sm:p-12 space-y-6 hover:border-[#B08D57]/60 transition-colors relative"
+                  className="bg-[#111111] border border-[#777777]/30 rounded-sm p-5 sm:p-8 space-y-6 hover:border-[#B08D57]/60 transition-colors relative"
                 >
                   {/* Clean unboxed metadata header */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-[#777777] font-poppins pb-4 border-b border-[#777777]/20">
@@ -214,7 +216,7 @@ export default async function WritingsPage({ searchParams }: Props) {
                   </div>
 
                   {/* Title */}
-                  <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-[#C0C0C0]">
+                  <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-[#C0C0C0] break-words">
                     {item.title}
                   </h3>
 

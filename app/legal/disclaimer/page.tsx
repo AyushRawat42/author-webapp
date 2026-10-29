@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function DisclaimerPage() {
   return (
-    <div className="min-h-[80vh] bg-[#050505] text-[#C0C0C0] py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-[80vh] bg-[#050505] text-[#C0C0C0] px-4 sm:px-6 md:px-12 py-10 md:py-20">
       <div className="max-w-3xl mx-auto space-y-12">
         <Link
           href="/"
@@ -27,7 +27,7 @@ export default function DisclaimerPage() {
           <p className="text-xs uppercase tracking-[0.25em] text-[#B08D57] font-cinzel">
             Legal Specification
           </p>
-          <h1 className="font-cinzel text-3xl sm:text-4xl font-bold tracking-wide text-[#C0C0C0]">
+          <h1 className="font-cinzel text-3xl sm:text-4xl font-bold tracking-wide text-[#C0C0C0] leading-tight break-words">
             Disclaimer
           </h1>
           <div className="flex items-center gap-4 text-xs font-poppins text-[#777777]">

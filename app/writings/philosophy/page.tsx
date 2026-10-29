@@ -20,14 +20,14 @@ export const metadata: Metadata = {
 
 export default function PhilosophyPage() {
   return (
-    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] px-4 sm:px-6 md:px-12 py-10 md:py-20">
       <div className="max-w-4xl mx-auto space-y-20">
         {/* Header */}
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <p className="text-xs uppercase tracking-[0.25em] text-[#B08D57] font-cinzel">
             Category B · Philosophy
           </p>
-          <h1 className="font-cinzel text-3xl sm:text-5xl font-bold tracking-wide text-[#C0C0C0]">
+          <h1 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-[#C0C0C0] leading-tight break-words">
             Philosophical Thoughts & Reflections
           </h1>
           <p className="font-poppins text-sm sm:text-base text-[#777777] leading-relaxed">
@@ -40,7 +40,7 @@ export default function PhilosophyPage() {
           {PHILOSOPHY_THOUGHTS.map((item, index) => (
             <div
               key={item.id}
-              className="bg-[#111111] border border-[#777777]/30 rounded-sm p-8 sm:p-12 space-y-6 hover:border-[#B08D57]/60 transition-colors relative"
+              className="bg-[#111111] border border-[#777777]/30 rounded-sm p-5 sm:p-8 space-y-6 hover:border-[#B08D57]/60 transition-colors relative"
             >
               {/* Top Meta Line: Clean, unboxed text */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-[#777777] font-poppins pb-4 border-b border-[#777777]/20">
@@ -51,7 +51,7 @@ export default function PhilosophyPage() {
               </div>
 
               {/* Title */}
-              <h2 className="font-cinzel text-xl sm:text-2xl font-bold text-[#C0C0C0]">
+              <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold text-[#C0C0C0] break-words">
                 {item.title}
               </h2>
 

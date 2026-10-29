@@ -13,9 +13,9 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-[#050505] border-t border-[#777777]/30 text-[#C0C0C0] font-poppins pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         {/* Main Footer: Strictly THREE main sections in ONE HORIZONTAL ROW on desktop with equal-width columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 pb-14 border-b border-[#777777]/20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left pb-14 border-b border-[#777777]/20">
           {/* Column A (EXPLORE) */}
           <div className="space-y-4">
             <h4 className="font-cinzel text-sm uppercase tracking-[0.2em] text-[#C0C0C0] font-bold pb-2 border-b border-[#777777]/30 inline-block">
@@ -68,7 +68,7 @@ export default function Footer() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 hover:text-[#DC2626] transition-colors"
+                  className="inline-flex items-center justify-center md:justify-start gap-2.5 hover:text-[#DC2626] transition-colors"
                 >
                   <Instagram size={16} className="text-[#B08D57]" />
                   <span>Instagram</span>
@@ -79,7 +79,7 @@ export default function Footer() {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 hover:text-[#DC2626] transition-colors"
+                  className="inline-flex items-center justify-center md:justify-start gap-2.5 hover:text-[#DC2626] transition-colors"
                 >
                   <Linkedin size={16} className="text-[#B08D57]" />
                   <span>LinkedIn</span>
@@ -90,7 +90,7 @@ export default function Footer() {
                   href="https://x.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 hover:text-[#DC2626] transition-colors"
+                  className="inline-flex items-center justify-center md:justify-start gap-2.5 hover:text-[#DC2626] transition-colors"
                 >
                   <Twitter size={16} className="text-[#B08D57]" />
                   <span>X (Twitter)</span>
@@ -101,7 +101,7 @@ export default function Footer() {
                   href="https://goodreads.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 hover:text-[#DC2626] transition-colors"
+                  className="inline-flex items-center justify-center md:justify-start gap-2.5 hover:text-[#DC2626] transition-colors"
                 >
                   <BookOpen size={16} className="text-[#B08D57]" />
                   <span>Goodreads</span>
@@ -153,9 +153,9 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#777777] border-t border-[#777777]/20">
+        <div className="pt-6 flex flex-col-reverse sm:flex-row items-center justify-between gap-4 text-xs text-[#777777] border-t border-[#777777]/20">
           <p>© 2026 Anant Chaudhary. All Rights Reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center">
             <Link
               href="/admin/submissions"
               className="hover:text-[#C0C0C0] transition-colors text-[11px] underline underline-offset-4 decoration-[#777777]/40"

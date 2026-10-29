@@ -67,7 +67,7 @@ export default async function PhilosophyDetailPage({ params }: Props) {
   };
 
   return (
-    <article className="min-h-screen bg-[#050505] text-[#C0C0C0] py-20 px-4 sm:px-6 lg:px-8">
+    <article className="min-h-screen bg-[#050505] text-[#C0C0C0] px-4 sm:px-6 md:px-12 py-10 md:py-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -89,7 +89,7 @@ export default async function PhilosophyDetailPage({ params }: Props) {
             <span>Category B · Principle of Conduct</span>
           </div>
 
-          <h1 className="font-cinzel text-3xl sm:text-5xl font-bold tracking-wide text-[#C0C0C0] leading-[1.2] text-balance">
+          <h1 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-[#C0C0C0] leading-tight break-words text-balance">
             {thought.title}
           </h1>
 

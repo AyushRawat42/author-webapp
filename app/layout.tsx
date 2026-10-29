@@ -118,14 +118,17 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${cinzel.variable} ${poppins.variable}`}>
+    <html
+      lang="en"
+      className={`${cinzel.variable} ${poppins.variable} w-full max-w-[100vw] overflow-x-hidden`}
+    >
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#050505] text-[#C0C0C0] font-poppins min-h-screen flex flex-col antialiased selection:bg-[#B5121B] selection:text-white">
+      <body className="w-full max-w-[100vw] overflow-x-hidden bg-[#050505] text-[#C0C0C0] font-poppins min-h-screen flex flex-col antialiased selection:bg-[#B5121B] selection:text-white">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

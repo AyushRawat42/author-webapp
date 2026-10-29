@@ -68,7 +68,7 @@ export default async function ArticleDetailPage({ params }: Props) {
   };
 
   return (
-    <article className="min-h-screen bg-[#050505] text-[#C0C0C0] py-16 px-4 sm:px-6 lg:px-8">
+    <article className="min-h-screen bg-[#050505] text-[#C0C0C0] px-4 sm:px-6 md:px-12 py-10 md:py-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -99,7 +99,7 @@ export default async function ArticleDetailPage({ params }: Props) {
           </div>
 
           {/* Semantic H1 */}
-          <h1 className="font-cinzel text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#C0C0C0] leading-[1.2]">
+          <h1 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#C0C0C0] leading-tight break-words">
             {article.title}
           </h1>
 
@@ -147,7 +147,7 @@ export default async function ArticleDetailPage({ params }: Props) {
 
         {/* Semantic Section with H2 and H3 Hierarchy */}
         <section className="space-y-8 font-poppins text-base sm:text-lg leading-relaxed text-[#C0C0C0]/90">
-          <h2 className="font-cinzel text-xl sm:text-2xl font-bold text-[#C0C0C0] pt-4 border-b border-[#777777]/20 pb-2">
+          <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold text-[#C0C0C0] pt-4 border-b border-[#777777]/20 pb-2">
             I. The Premise of Deliberate Action
           </h2>
 

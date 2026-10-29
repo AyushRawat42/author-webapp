@@ -52,14 +52,14 @@ export default function EmailSubscription() {
   return (
     <section
       aria-label="Email Subscription"
-      className="w-full bg-[#111111] border-y border-[#777777]/25 py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+      className="w-full bg-[#111111] border-y border-[#777777]/25 px-4 sm:px-6 md:px-12 py-10 md:py-20 relative overflow-hidden"
     >
       {/* Subtle antique gold top border accent */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-[1px] bg-gradient-to-r from-transparent via-[#B08D57]/60 to-transparent" />
 
       <div className="max-w-3xl mx-auto text-center space-y-6">
         {/* Short Heading in Cinzel */}
-        <h2 className="font-cinzel text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wider text-[#C0C0C0]">
+        <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold tracking-wider text-[#C0C0C0]">
           Occasional Philosophical Dispatches
         </h2>
 
@@ -71,7 +71,7 @@ export default function EmailSubscription() {
         {/* Subscription Form */}
         <form
           onSubmit={handleSubmit}
-          className="pt-4 max-w-md mx-auto flex flex-col sm:flex-row items-stretch gap-3"
+          className="pt-4 w-full max-w-md mx-auto flex flex-col sm:flex-row gap-3"
           noValidate
         >
           <div className="flex-1 relative">
@@ -86,14 +86,14 @@ export default function EmailSubscription() {
               placeholder="Enter your email address"
               required
               aria-label="Email address for subscription"
-              className="w-full px-4 py-3 bg-[#050505] border border-[#777777]/40 rounded-sm text-sm text-[#C0C0C0] placeholder-[#777777] focus:outline-none focus:border-[#B5121B] focus:ring-1 focus:ring-[#B5121B] transition-colors"
+              className="w-full sm:w-auto h-12 px-4 bg-[#050505] border border-[#777777]/40 rounded-sm text-base text-[#C0C0C0] placeholder-[#777777] focus:outline-none focus:border-[#B5121B] focus:ring-1 focus:ring-[#B5121B] transition-colors"
             />
           </div>
 
           <button
             type="submit"
             disabled={isPending}
-            className="px-6 py-3 bg-[#B5121B] hover:bg-[#DC2626] text-white text-xs font-semibold tracking-widest font-cinzel uppercase rounded-sm transition-all duration-200 inline-flex items-center justify-center gap-2 shrink-0 cursor-pointer disabled:opacity-50"
+            className="w-full sm:w-auto h-12 px-6 bg-[#B5121B] hover:bg-[#DC2626] text-white text-base font-semibold tracking-widest font-cinzel uppercase rounded-sm transition-all duration-200 inline-flex items-center justify-center gap-2 shrink-0 cursor-pointer disabled:opacity-50"
           >
             <span>{isPending ? 'Subscribing...' : 'Subscribe'}</span>
             <ArrowRight size={14} />

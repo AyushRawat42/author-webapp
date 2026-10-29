@@ -70,14 +70,14 @@ export default function AskPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] px-4 sm:px-6 md:px-12 py-10 md:py-20">
       <div className="max-w-2xl mx-auto space-y-12">
         {/* Page Header */}
         <div className="text-center space-y-4">
           <p className="text-xs uppercase tracking-[0.25em] text-[#B08D57] font-cinzel">
             Philosophical Dialogues & Inquiries
           </p>
-          <h1 className="font-cinzel text-3xl sm:text-5xl font-bold tracking-wide text-[#C0C0C0]">
+          <h1 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-[#C0C0C0] leading-tight break-words">
             Ask a Question
           </h1>
           <p className="font-poppins text-sm sm:text-base text-[#777777] max-w-xl mx-auto leading-relaxed">
@@ -94,7 +94,7 @@ export default function AskPage() {
         </div>
 
         {/* Form Container */}
-        <div className="bg-[#111111] border border-[#777777]/30 rounded-sm p-8 sm:p-12 space-y-8">
+        <div className="bg-[#111111] border border-[#777777]/30 rounded-sm p-5 sm:p-8 md:p-12 space-y-8">
           {status === 'success' ? (
             <div className="text-center py-8 space-y-4">
               <div className="w-14 h-14 rounded-full bg-[#161616] border border-[#B08D57] flex items-center justify-center mx-auto text-[#B08D57]">
@@ -129,6 +129,7 @@ export default function AskPage() {
                   value={formData.botField}
                   onChange={(e) => setFormData({ ...formData, botField: e.target.value })}
                   autoComplete="off"
+                  className="w-full h-12 px-4 text-base"
                 />
               </div>
 
@@ -151,7 +152,7 @@ export default function AskPage() {
                     setFormData({ ...formData, name: e.target.value });
                     if (errors.name) setErrors({ ...errors, name: undefined });
                   }}
-                  className={`w-full px-4 py-3 bg-[#050505] border rounded-sm text-sm text-[#C0C0C0] placeholder-[#777777] focus:outline-none focus:ring-1 transition-colors ${
+                  className={`w-full h-12 px-4 bg-[#050505] border rounded-sm text-base text-[#C0C0C0] placeholder-[#777777] focus:outline-none focus:ring-1 transition-colors ${
                     errors.name
                       ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-[#DC2626]'
                       : 'border-[#777777]/40 focus:border-[#B5121B] focus:ring-[#B5121B]'
@@ -184,7 +185,7 @@ export default function AskPage() {
                     setFormData({ ...formData, email: e.target.value });
                     if (errors.email) setErrors({ ...errors, email: undefined });
                   }}
-                  className={`w-full px-4 py-3 bg-[#050505] border rounded-sm text-sm text-[#C0C0C0] placeholder-[#777777] focus:outline-none focus:ring-1 transition-colors ${
+                  className={`w-full h-12 px-4 bg-[#050505] border rounded-sm text-base text-[#C0C0C0] placeholder-[#777777] focus:outline-none focus:ring-1 transition-colors ${
                     errors.email
                       ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-[#DC2626]'
                       : 'border-[#777777]/40 focus:border-[#B5121B] focus:ring-[#B5121B]'
@@ -217,7 +218,7 @@ export default function AskPage() {
                     setFormData({ ...formData, question: e.target.value });
                     if (errors.question) setErrors({ ...errors, question: undefined });
                   }}
-                  className={`w-full px-4 py-3 bg-[#050505] border rounded-sm text-sm text-[#C0C0C0] placeholder-[#777777] focus:outline-none focus:ring-1 transition-colors resize-y ${
+                  className={`w-full px-4 py-3 bg-[#050505] border rounded-sm text-base text-[#C0C0C0] placeholder-[#777777] focus:outline-none focus:ring-1 transition-colors resize-y ${
                     errors.question
                       ? 'border-[#DC2626] focus:border-[#DC2626] focus:ring-[#DC2626]'
                       : 'border-[#777777]/40 focus:border-[#B5121B] focus:ring-[#B5121B]'
@@ -236,7 +237,7 @@ export default function AskPage() {
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="w-full py-3.5 bg-[#B5121B] hover:bg-[#DC2626] text-white text-xs sm:text-sm font-semibold tracking-widest font-cinzel uppercase rounded-sm transition-all duration-200 shadow-lg shadow-[#B5121B]/20 inline-flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="w-full h-12 bg-[#B5121B] hover:bg-[#DC2626] text-white text-xs sm:text-sm font-semibold tracking-widest font-cinzel uppercase rounded-sm transition-all duration-200 shadow-lg shadow-[#B5121B]/20 inline-flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   <span>{isPending ? 'SUBMITTING QUESTION...' : 'SUBMIT QUESTION'}</span>
                   <HelpCircle size={15} />

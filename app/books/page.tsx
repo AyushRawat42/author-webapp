@@ -21,14 +21,14 @@ export const metadata: Metadata = {
 
 export default function BooksPage() {
   return (
-    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] px-4 sm:px-6 md:px-12 py-10 md:py-20">
       <div className="max-w-7xl mx-auto space-y-24">
         {/* Page Header */}
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <p className="text-xs uppercase tracking-[0.25em] text-[#B08D57] font-cinzel">
             Literary Bibliography
           </p>
-          <h1 className="font-cinzel text-3xl sm:text-5xl font-bold tracking-wide text-[#C0C0C0]">
+          <h1 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-[#C0C0C0] leading-tight break-words">
             Books & Publications
           </h1>
           <p className="font-poppins text-sm sm:text-base text-[#777777]">
@@ -37,11 +37,11 @@ export default function BooksPage() {
         </div>
 
         {/* Section A: Published Books */}
-        <section aria-labelledby="published-books-heading" className="space-y-12">
+        <section aria-labelledby="published-books-heading" className="space-y-8 md:space-y-12">
           <div className="border-b border-[#777777]/25 pb-4">
             <h2
               id="published-books-heading"
-              className="font-cinzel text-xl sm:text-2xl font-bold tracking-wider text-[#C0C0C0] uppercase"
+              className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold tracking-wider text-[#C0C0C0] uppercase"
             >
               A. Published Books
             </h2>
@@ -50,26 +50,26 @@ export default function BooksPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {PUBLISHED_BOOKS.map((book) => (
               <div
                 key={book.id}
-                className="bg-[#111111] border border-[#777777]/30 rounded-sm p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-8 hover:border-[#B5121B]/60 transition-colors"
+                className="bg-[#111111] border border-[#777777]/30 rounded-sm p-5 sm:p-8 flex flex-col items-center gap-8 hover:border-[#B5121B]/60 transition-colors"
               >
-                <div className="shrink-0">
+                <div className="w-full max-w-[220px] mx-auto">
                   <Link href={`/books/${book.slug}`}>
-                    <BookCover book={book} size="md" />
+                    <BookCover book={book} size="md" className="mx-auto" />
                   </Link>
                 </div>
 
-                <div className="flex-1 space-y-4 text-center sm:text-left">
+                <div className="w-full space-y-4 text-center">
                   <div className="text-xs text-[#777777] font-poppins">
                     <span>Published: {book.publishedYear}</span>
                     <span className="mx-2 text-[#B08D57]">·</span>
                     <span>{book.publisher}</span>
                   </div>
 
-                  <h3 className="font-cinzel text-2xl font-bold text-[#C0C0C0] hover:text-white transition-colors">
+                  <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-[#C0C0C0] hover:text-white transition-colors break-words">
                     <Link href={`/books/${book.slug}`}>{book.title}</Link>
                   </h3>
 
@@ -89,10 +89,10 @@ export default function BooksPage() {
                   </div>
 
                   {/* Actions & Purchase Links */}
-                  <div className="pt-3 flex flex-wrap gap-3 justify-center sm:justify-start">
+                  <div className="pt-3 w-full flex flex-col gap-3">
                     <Link
                       href={`/books/${book.slug}`}
-                      className="px-4 py-2 bg-[#B5121B] hover:bg-[#DC2626] text-white text-xs font-semibold tracking-wider font-cinzel uppercase rounded-sm transition-colors inline-flex items-center gap-1.5"
+                      className="w-full px-4 py-2 bg-[#B5121B] hover:bg-[#DC2626] text-white text-xs font-semibold tracking-wider font-cinzel uppercase rounded-sm transition-colors inline-flex items-center justify-center gap-1.5"
                     >
                       <span>Book Details</span>
                       <ArrowRight size={13} />
@@ -104,7 +104,7 @@ export default function BooksPage() {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-3 py-2 bg-[#050505] border border-[#777777]/40 text-[#C0C0C0] hover:text-white text-xs font-medium font-cinzel uppercase rounded-sm transition-colors inline-flex items-center gap-1.5"
+                        className="w-full px-3 py-2 bg-[#050505] border border-[#777777]/40 text-[#C0C0C0] hover:text-white text-xs font-medium font-cinzel uppercase rounded-sm transition-colors inline-flex items-center justify-center gap-1.5"
                       >
                         <ShoppingCart size={12} className="text-[#B08D57]" />
                         <span>{link.platform}</span>
@@ -123,7 +123,7 @@ export default function BooksPage() {
           <div className="border-b border-[#777777]/25 pb-4">
             <h2
               id="upcoming-books-heading"
-              className="font-cinzel text-xl sm:text-2xl font-bold tracking-wider text-[#C0C0C0] uppercase"
+              className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold tracking-wider text-[#C0C0C0] uppercase"
             >
               B. Upcoming Books
             </h2>
@@ -133,10 +133,10 @@ export default function BooksPage() {
           </div>
 
           {/* Clean and visually consistent presentation displaying ONLY front cover images */}
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-12 sm:gap-16 pt-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3.5 sm:gap-6 pt-4">
             {UPCOMING_BOOKS.map((book) => (
-              <div key={book.id} className="flex flex-col items-center">
-                <BookCover book={book} size="lg" />
+              <div key={book.id} className="w-full flex justify-center">
+                <BookCover book={book} size="lg" className="w-full" />
               </div>
             ))}
           </div>

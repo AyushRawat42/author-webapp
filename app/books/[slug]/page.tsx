@@ -62,7 +62,7 @@ export default async function BookDetailPage({ params }: Props) {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] px-4 sm:px-6 md:px-12 py-10 md:py-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -82,7 +82,7 @@ export default async function BookDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
           {/* Left Column: Cover */}
           <div className="md:col-span-5 flex justify-center md:justify-start">
-            <BookCover book={book} size="lg" />
+            <BookCover book={book} size="lg" className="w-full mx-auto" />
           </div>
 
           {/* Right Column: Book Specifications & Actions */}
@@ -91,7 +91,7 @@ export default async function BookDetailPage({ params }: Props) {
               <span className="text-xs uppercase tracking-[0.25em] text-[#B08D57] font-cinzel block">
                 Published Volume · {book.publishedYear}
               </span>
-              <h1 className="font-cinzel text-3xl sm:text-4xl font-bold tracking-wide text-[#C0C0C0]">
+              <h1 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-[#C0C0C0] leading-tight break-words">
                 {book.title}
               </h1>
               {book.subtitle && (
@@ -103,23 +103,23 @@ export default async function BookDetailPage({ params }: Props) {
 
             {/* Metadata Table */}
             <div className="bg-[#111111] border border-[#777777]/30 rounded-sm p-5 space-y-2.5 text-xs font-poppins">
-              <div className="flex justify-between py-1 border-b border-[#777777]/15">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 py-1 border-b border-[#777777]/15">
                 <span className="text-[#777777]">Author</span>
                 <span className="text-[#C0C0C0] font-medium">Anant Chaudhary</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#777777]/15">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 py-1 border-b border-[#777777]/15">
                 <span className="text-[#777777]">Publisher</span>
                 <span className="text-[#C0C0C0]">{book.publisher}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#777777]/15">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 py-1 border-b border-[#777777]/15">
                 <span className="text-[#777777]">ISBN-13</span>
                 <span className="text-[#C0C0C0] font-mono">{book.isbn}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#777777]/15">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 py-1 border-b border-[#777777]/15">
                 <span className="text-[#777777]">Format</span>
                 <span className="text-[#C0C0C0]">{book.format}</span>
               </div>
-              <div className="flex justify-between py-1">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 py-1">
                 <span className="text-[#777777]">Pages</span>
                 <span className="text-[#C0C0C0] font-mono">{book.pages}</span>
               </div>
@@ -130,14 +130,14 @@ export default async function BookDetailPage({ params }: Props) {
               <h3 className="font-cinzel text-xs uppercase tracking-widest text-[#B08D57]">
                 Acquisition Links
               </h3>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3">
                 {book.purchaseLinks?.map((link) => (
                   <a
                     key={link.platform}
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2.5 bg-[#B5121B] hover:bg-[#DC2626] text-white text-xs font-semibold tracking-wider font-cinzel uppercase rounded-sm transition-colors inline-flex items-center gap-2"
+                    className="w-full sm:w-auto px-5 py-2.5 bg-[#B5121B] hover:bg-[#DC2626] text-white text-xs font-semibold tracking-wider font-cinzel uppercase rounded-sm transition-colors inline-flex items-center justify-center gap-2"
                   >
                     <span>Order via {link.platform}</span>
                     <ExternalLink size={12} />
@@ -150,7 +150,7 @@ export default async function BookDetailPage({ params }: Props) {
 
         {/* Philosophical Synopsis */}
         <div className="bg-[#111111] border border-[#777777]/30 rounded-sm p-8 sm:p-12 space-y-6">
-          <h2 className="font-cinzel text-xl sm:text-2xl font-bold tracking-wide text-[#C0C0C0] pb-4 border-b border-[#777777]/25">
+          <h2 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide text-[#C0C0C0] pb-4 border-b border-[#777777]/25">
             Treatise Synopsis & Argument
           </h2>
           <div className="font-poppins text-sm sm:text-base text-[#C0C0C0]/90 leading-relaxed space-y-4">
@@ -178,7 +178,7 @@ export default async function BookDetailPage({ params }: Props) {
         {/* Table of Contents & Critical Acclaim */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {book.tableOfContents && (
-            <div className="bg-[#111111] border border-[#777777]/30 rounded-sm p-8 space-y-4">
+            <div className="bg-[#111111] border border-[#777777]/30 rounded-sm p-5 sm:p-8 space-y-4">
               <h3 className="font-cinzel text-lg font-bold text-[#C0C0C0] pb-3 border-b border-[#777777]/25">
                 Structure & Chapters
               </h3>

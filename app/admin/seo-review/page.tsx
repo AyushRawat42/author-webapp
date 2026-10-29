@@ -148,7 +148,7 @@ export default function SEOReviewConsolePage() {
   const approvedCount = items.filter((i) => i.status === 'approved').length;
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] px-4 sm:px-6 md:px-12 py-10 md:py-20">
       <div className="max-w-6xl mx-auto space-y-10">
         <Link
           href="/"
@@ -161,11 +161,11 @@ export default function SEOReviewConsolePage() {
         {/* Console Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#777777]/25">
           <div className="space-y-1">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#B08D57] font-cinzel">
+            <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.25em] text-[#B08D57] font-cinzel">
               <Search size={14} className="text-[#B5121B]" />
               <span>Client Review & Approval Stage</span>
             </div>
-            <h1 className="font-cinzel text-2xl sm:text-3xl font-bold text-[#C0C0C0]">
+            <h1 className="font-cinzel text-2xl sm:text-3xl font-bold text-[#C0C0C0] leading-tight break-words">
               SEO Strategy, Meta Titles & Descriptions
             </h1>
             <p className="text-xs font-poppins text-[#777777]">
@@ -173,13 +173,13 @@ export default function SEOReviewConsolePage() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col items-start sm:flex-row sm:items-center gap-3 sm:gap-4">
             <span className="text-xs font-poppins text-[#777777]">
               Approved: <strong className="text-[#C0C0C0]">{approvedCount}</strong> / {items.length}
             </span>
             <button
               onClick={approveAll}
-              className="px-5 py-2.5 bg-[#B5121B] hover:bg-[#DC2626] text-white text-xs font-cinzel uppercase tracking-wider rounded-sm transition-colors cursor-pointer"
+              className="w-full sm:w-auto px-5 py-2.5 bg-[#B5121B] hover:bg-[#DC2626] text-white text-xs font-cinzel uppercase tracking-wider rounded-sm transition-colors cursor-pointer"
             >
               Authorize All Metadata
             </button>
@@ -228,11 +228,11 @@ export default function SEOReviewConsolePage() {
               className="bg-[#111111] border border-[#777777]/30 rounded-sm p-6 sm:p-8 space-y-5 hover:border-[#777777] transition-colors"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#777777]/20">
-                <div className="flex items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <span className="font-mono text-xs text-[#B08D57]">
                     0{idx + 1}
                   </span>
-                  <h3 className="font-cinzel text-lg font-bold text-[#C0C0C0]">
+                  <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-[#C0C0C0] break-words">
                     {item.page}
                   </h3>
                   <code className="text-xs text-[#777777] bg-[#050505] px-2 py-0.5 rounded-xs">
@@ -257,7 +257,7 @@ export default function SEOReviewConsolePage() {
 
               {/* Proposed Meta Title */}
               <div className="space-y-1">
-                <div className="flex justify-between text-xs text-[#777777]">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 text-xs text-[#777777]">
                   <span className="font-cinzel uppercase tracking-wider">
                     Proposed Meta Title
                   </span>
@@ -270,7 +270,7 @@ export default function SEOReviewConsolePage() {
 
               {/* Proposed Meta Description */}
               <div className="space-y-1">
-                <div className="flex justify-between text-xs text-[#777777]">
+                <div className="flex flex-col sm:flex-row sm:justify-between gap-1 text-xs text-[#777777]">
                   <span className="font-cinzel uppercase tracking-wider">
                     Proposed Meta Description
                   </span>

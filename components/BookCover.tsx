@@ -16,9 +16,9 @@ export default function BookCover({
   className = '',
 }: BookCoverProps) {
   const sizeClasses = {
-    sm: 'w-40 h-60 text-xs',
-    md: 'w-56 h-80 text-sm',
-    lg: 'w-72 h-[416px] text-base',
+    sm: 'w-full max-w-40 aspect-[2/3] text-xs',
+    md: 'w-full max-w-[220px] aspect-[2/3] text-sm',
+    lg: 'w-full max-w-[220px] aspect-[2/3] text-base',
   };
 
   const isUpcoming = book.status === 'upcoming';

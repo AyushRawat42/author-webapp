@@ -20,17 +20,17 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#050505] border-b border-[#777777]/30 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 h-20 flex items-center justify-between gap-3 md:gap-8">
         {/* Brand Wordmark */}
         <Link
           href="/"
-          className="font-cinzel text-xl sm:text-2xl font-bold tracking-[0.2em] text-[#C0C0C0] hover:text-white transition-colors whitespace-nowrap shrink-0"
+          className="font-cinzel text-base min-[375px]:text-lg sm:text-2xl font-bold tracking-[0.12em] sm:tracking-[0.2em] text-[#C0C0C0] hover:text-white transition-colors whitespace-nowrap shrink-0"
         >
           ANANT CHAUDHARY
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-7 lg:gap-8 text-sm font-medium font-poppins">
+        <nav className="hidden md:flex items-center gap-3 lg:gap-8 text-sm font-medium font-poppins">
           {NAV_LINKS.map((link) => {
             const isActive =
               link.href === '/'
@@ -66,17 +66,14 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Navigation Trigger */}
-        <div className="flex md:hidden items-center gap-3">
-          <Link
-            href="/ask"
-            className="px-3 py-1.5 rounded-sm bg-[#B5121B] text-white text-xs font-medium font-cinzel uppercase"
-          >
-            Ask
-          </Link>
+        <div className="flex md:hidden items-center">
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            type="button"
+            onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
             aria-label="Toggle navigation menu"
-            className="p-2 text-[#C0C0C0] hover:text-white cursor-pointer"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+            className="p-2.5 min-h-[44px] min-w-[44px] text-[#C0C0C0] hover:text-white cursor-pointer"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -85,20 +82,24 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#111111] border-b border-[#777777]/30 px-6 py-6 space-y-4">
-          <div className="flex flex-col space-y-3 font-poppins">
+        <nav
+          id="mobile-navigation"
+          aria-label="Mobile navigation"
+          className="w-full md:hidden bg-[#111111] border-b border-[#777777] px-4 sm:px-6 py-3.5 font-poppins"
+        >
+          <div className="flex flex-col">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base text-[#C0C0C0] hover:text-[#DC2626] transition-colors py-1"
+                className="border-b border-[#777777]/20 py-3.5 text-lg text-[#C0C0C0] hover:text-[#DC2626] transition-colors last:border-b-0"
               >
                 {link.label}
               </Link>
             ))}
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );

@@ -80,7 +80,7 @@ export default async function DynamicLegalPage({ params }: Props) {
   }
 
   return (
-    <div className="min-h-[85vh] bg-[#050505] text-[#C0C0C0] py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-[85vh] bg-[#050505] text-[#C0C0C0] px-4 sm:px-6 md:px-12 py-10 md:py-20">
       <div className="max-w-3xl mx-auto space-y-12">
         {/* Breadcrumb Navigation */}
         <Link
@@ -99,7 +99,7 @@ export default async function DynamicLegalPage({ params }: Props) {
             <span>{doc.category}</span>
           </div>
 
-          <h1 className="font-cinzel text-3xl sm:text-5xl font-bold tracking-wide text-[#C0C0C0]">
+          <h1 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide text-[#C0C0C0] leading-tight break-words">
             {doc.title}
           </h1>
 

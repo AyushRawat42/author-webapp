@@ -23,7 +23,7 @@ export default function SubmissionsManagementPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#050505] text-[#C0C0C0] px-4 sm:px-6 md:px-12 py-10 md:py-20">
       <div className="max-w-6xl mx-auto space-y-10">
         {/* Back Link */}
         <Link
@@ -47,10 +47,10 @@ export default function SubmissionsManagementPage() {
           </div>
 
           {/* Tab Controls */}
-          <div className="flex items-center gap-2 bg-[#111111] p-1 border border-[#777777]/30 rounded-sm">
+          <div className="grid grid-cols-1 sm:flex sm:flex-wrap items-stretch sm:items-center gap-2 w-full md:w-auto bg-[#111111] p-1 border border-[#777777]/30 rounded-sm">
             <button
               onClick={() => setActiveTab('ask')}
-              className={`px-4 py-2 text-xs font-cinzel uppercase tracking-wider rounded-sm transition-colors cursor-pointer ${
+              className={`w-full sm:w-auto px-3 sm:px-4 py-2 text-xs font-cinzel uppercase tracking-wider rounded-sm transition-colors cursor-pointer ${
                 activeTab === 'ask'
                   ? 'bg-[#B5121B] text-white font-semibold'
                   : 'text-[#777777] hover:text-white'
@@ -60,7 +60,7 @@ export default function SubmissionsManagementPage() {
             </button>
             <button
               onClick={() => setActiveTab('contact')}
-              className={`px-4 py-2 text-xs font-cinzel uppercase tracking-wider rounded-sm transition-colors cursor-pointer ${
+              className={`w-full sm:w-auto px-3 sm:px-4 py-2 text-xs font-cinzel uppercase tracking-wider rounded-sm transition-colors cursor-pointer ${
                 activeTab === 'contact'
                   ? 'bg-[#B5121B] text-white font-semibold'
                   : 'text-[#777777] hover:text-white'
@@ -70,7 +70,7 @@ export default function SubmissionsManagementPage() {
             </button>
             <button
               onClick={() => setActiveTab('subscribers')}
-              className={`px-4 py-2 text-xs font-cinzel uppercase tracking-wider rounded-sm transition-colors cursor-pointer ${
+              className={`w-full sm:w-auto px-3 sm:px-4 py-2 text-xs font-cinzel uppercase tracking-wider rounded-sm transition-colors cursor-pointer ${
                 activeTab === 'subscribers'
                   ? 'bg-[#B5121B] text-white font-semibold'
                   : 'text-[#777777] hover:text-white'
@@ -127,7 +127,7 @@ export default function SubmissionsManagementPage() {
                     </div>
 
                     {/* Review Actions */}
-                    <div className="flex items-center justify-end gap-3 pt-2 text-xs">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3 pt-2 text-xs">
                       <button
                         onClick={() => handleStatusChange(item.id, 'pending_review')}
                         className={`px-3 py-1.5 rounded-sm border ${
@@ -206,16 +206,16 @@ export default function SubmissionsManagementPage() {
         {/* Tab 3: Newsletter Subscribers */}
         {activeTab === 'subscribers' && (
           <div className="bg-[#111111] border border-[#777777]/30 rounded-sm p-6 space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-[#777777]/20 text-xs text-[#777777]">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 border-b border-[#777777]/20 text-xs text-[#777777]">
               <span>Subscriber Email</span>
               <span>Subscribed On</span>
             </div>
             {subscribers.map((s) => (
               <div
                 key={s.id}
-                className="flex items-center justify-between text-xs font-mono py-2 border-b border-[#777777]/10"
+                className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs font-mono py-2 border-b border-[#777777]/10"
               >
-                <span className="text-[#C0C0C0]">{s.email}</span>
+                <span className="text-[#C0C0C0] break-all">{s.email}</span>
                 <span className="text-[#777777]">
                   {new Date(s.subscribedAt).toLocaleDateString()}
                 </span>
