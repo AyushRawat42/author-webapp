@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+@theme {
+  --font-cinzel: var(--font-cinzel), "Cinzel", Georgia, serif;
+  --font-poppins: var(--font-poppins), "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --color-pureBlack: #050505;
+  --color-charcoal: #111111;
+  --color-silver: #C0C0C0;
+  --color-crimson: #B5121B;
+  --color-glowRed: #DC2626;
+  --color-antiqueGold: #B08D57;
+  --color-gunmetal: #777777;
+
+  --color-pure-black: #050505;
+  --color-metallic-silver: #C0C0C0;
+  --color-deep-crimson: #B5121B;
+  --color-glow-red: #DC2626;
+  --color-antique-gold: #B08D57;
+}
+
+:root {
+  --bg-primary: #050505;
+  --bg-secondary: #111111;
+  --text-primary: #C0C0C0;
+  --text-secondary: #777777;
+  --accent-crimson: #B5121B;
+  --accent-glow: #DC2626;
+  --accent-gold: #B08D57;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #050505;
+  color: #C0C0C0;
+}
+
+body {
+  font-family: var(--font-poppins), sans-serif;
+  background-color: #050505;
+  color: #C0C0C0;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #B5121B;
+  color: #ffffff;
+}
+
+/* Custom scrollbar matching dark luxury theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B5121B;
+}
+
+/* Typography Helpers */
+.font-cinzel {
+  font-family: var(--font-cinzel), serif;
+}
+
+.font-poppins {
+  font-family: var(--font-poppins), sans-serif;
+}

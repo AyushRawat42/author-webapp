@@ -1,0 +1,70 @@
+import React from 'react';
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowLeft, Copyright, FileCheck } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Copyright Policy',
+  description: 'Official Copyright Policy page structure for Anant Chaudhary.',
+  alternates: {
+    canonical: '/copyright-policy',
+  },
+};
+
+export default function CopyrightPolicyPage() {
+  return (
+    <div className="min-h-[80vh] bg-[#050505] text-[#C0C0C0] py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto space-y-12">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-xs font-cinzel uppercase tracking-widest text-[#777777] hover:text-[#DC2626] transition-colors"
+        >
+          <ArrowLeft size={14} />
+          <span>Return to Official Site</span>
+        </Link>
+
+        {/* Page Header */}
+        <header className="space-y-4 pb-8 border-b border-[#777777]/25">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#B08D57] font-cinzel">
+            Legal Document 2 of 4
+          </p>
+          <h1 className="font-cinzel text-3xl sm:text-4xl font-bold tracking-wide text-[#C0C0C0]">
+            Copyright Policy
+          </h1>
+          <div className="flex items-center gap-4 text-xs font-poppins text-[#777777]">
+            <span>Document Status: Pending Client Sign-Off</span>
+            <span>·</span>
+            <span>All Rights Reserved Worldwide</span>
+          </div>
+        </header>
+
+        {/* Prepared Structure */}
+        <div className="bg-[#111111] border border-[#777777]/30 rounded-sm p-8 sm:p-12 space-y-8">
+          <div className="flex items-center gap-3 text-[#B08D57]">
+            <Copyright size={24} className="text-[#B5121B]" />
+            <h2 className="font-cinzel text-lg font-bold text-[#C0C0C0]">
+              Intellectual Property Notice
+            </h2>
+          </div>
+
+          <div className="space-y-4 text-sm font-poppins text-[#777777] leading-relaxed">
+            <p>
+              This structure has been created to house the intellectual property, quotation permissions, and translation rights framework for the literary and philosophical works of Anant Chaudhary.
+            </p>
+            <p className="border-l-2 border-[#B5121B] pl-4 text-[#C0C0C0]">
+              Per editorial instructions, generic placeholder legal content has been omitted. The comprehensive copyright schedule—including excerpting rules, academic attribution standards, and publisher licensing terms—will be published following direct author submission.
+            </p>
+            <p>
+              All published books, article manuscripts, philosophical fragments, and cover artwork appearing on this domain remain the exclusive property of Anant Chaudhary and respective licensed publishers.
+            </p>
+          </div>
+
+          <div className="pt-6 border-t border-[#777777]/20 flex items-center justify-between text-xs text-[#777777]">
+            <span>© 2026 Anant Chaudhary</span>
+            <span className="font-mono">REF: CPRT-2026-V1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

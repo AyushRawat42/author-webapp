@@ -1,0 +1,6 @@
+{
+  "name": "Anant Chaudhary — Official Author Website",
+  "description": "The official website of author and philosopher Anant Chaudhary. Explore published books, upcoming releases, philosophical reflections, articles, and literary inquiries.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
